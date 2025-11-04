@@ -1,0 +1,10 @@
+version: 2
+
+models:
+  - name: session_summary
+    description: "Joined, deduped, aggregated sessions"
+    columns:
+      - name: SESSIONID
+        tests:
+          - not_null
+          - unique
