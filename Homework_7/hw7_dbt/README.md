@@ -1,15 +1,11 @@
-Welcome to your new dbt project!
+# Homework 7 — dbt + Snowflake
 
-### Using the starter project
+Project builds input views from RAW tables, creates `ANALYTICS.SESSION_SUMMARY`, snapshots it, and tests `SESSIONID` (not_null, unique).
 
-Try running the following commands:
-- dbt run
-- dbt test
-
-
-### Resources:
-- Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
-- Check out [Discourse](https://discourse.getdbt.com/) for commonly asked questions and answers
-- Join the [chat](https://community.getdbt.com/) on Slack for live discussions and support
-- Find [dbt events](https://events.getdbt.com) near you
-- Check out [the blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices
+## How to run
+```bash
+dbt debug
+dbt run -s "path:models/input/*"
+dbt run -s output.session_summary
+dbt snapshot
+dbt test -s session_summary
